@@ -10,6 +10,8 @@ import { AuthButton } from "./auth-button";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { LogOutIcon } from "lucide-react";
+import { SignOutButton } from "@clerk/nextjs";
 
 export default function Component() {
   return (
@@ -39,7 +41,13 @@ export default function Component() {
             <Link href="#" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
             About
             </Link>
-            <AuthButton />
+          <Link href="/sign-in" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
+          <SignOutButton> 
+          <Button variant="ghost"><LogOutIcon className="h-6 w-6"/> SignOut</Button>
+          </SignOutButton>
+           
+          </Link>
+            
           </div>
         </SheetContent>
       </Sheet>
@@ -77,7 +85,7 @@ export default function Component() {
           About
         </Link>
         <AuthButton />
-      </nav>
+       </nav>
     </header>
   )
 }
