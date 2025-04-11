@@ -16,7 +16,7 @@ import Image from "next/image";
 
 export default function Component() {
   return (
-    <header className="flex h-18 w-full shrink-0 items-center px-4 md:px-6s shadow-md mb-4">
+    <header className="flex h-18 w-full shrink-0 items-center px-4 md:px-6s shadow-md mb-2">
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="outline" size="icon" className="lg:hidden">
