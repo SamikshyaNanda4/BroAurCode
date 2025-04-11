@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { LogOutIcon } from "lucide-react";
 import { SignOutButton } from "@clerk/nextjs";
+import Image from "next/image";
 
 export default function Component() {
   return (
@@ -25,7 +26,8 @@ export default function Component() {
         </SheetTrigger>
         <SheetContent side="left">
           <Link href="#" className="mr-6 hidden lg:flex" prefetch={false}>
-            <MountainIcon className="h-6 w-6" />
+            {/* <MountainIcon className="h-6 w-6" /> */}
+            <Image src={"/Logo.png"} alt="Logo" width={150} height={50} style={{cursor:"pointer"}}></Image>
             <span className="sr-only">Acme Inc</span>
           </Link>
           <div className="grid gap-2 py-6">
@@ -52,7 +54,8 @@ export default function Component() {
         </SheetContent>
       </Sheet>
       <Link href="#" className="mr-6 hidden lg:flex" prefetch={false}>
-        <MountainIcon className="h-6 w-6" />
+        {/* <MountainIcon className="h-6 w-6" /> */}
+        <Image src={"/Logo.png"} alt="Logo" width={150} height={50} style={{cursor:"pointer"}}></Image>
         <span className="sr-only">Acme Inc</span>
       </Link>
       <nav className="ml-auto hidden lg:flex gap-6">
