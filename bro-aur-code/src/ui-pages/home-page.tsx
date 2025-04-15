@@ -14,7 +14,7 @@ const Home=()=> {
         if (!isLoaded) router.push("/"); 
     
         if (!isSignedIn) {
-          router.push("/sign-up");
+          router.push("/");
         }
       }, [isLoaded, isSignedIn, router]);
   return (
