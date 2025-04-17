@@ -5,6 +5,7 @@ import { Questions } from "@/data/questionTableHardCoded"
 
 import {ColumnDef, flexRender,getCoreRowModel,useReactTable} from "@tanstack/react-table"
 import  {Table, TableBody, TableCell, TableHead,TableHeader,TableRow} from "@/components/ui/table"
+import Link from "next/link"
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
@@ -14,7 +15,7 @@ interface DataTableProps<TData, TValue> {
   export function QuestionTable<TData, TValue>({
     columns,
     data,
-  }: DataTableProps<TData, TValue>) {
+  }: DataTableProps<Questions, TValue>) {
     const table = useReactTable({
       data,
       columns,
@@ -44,7 +45,8 @@ interface DataTableProps<TData, TValue> {
         <TableBody>
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => {
-              // console.log("Row Data", row?.original?.question.toLowerCase().replace(/\s+/g, "-"))
+              console.log("Row Data", row?.original?.question.toLowerCase().replace(/\s+/g, "-"))
+              const link=`/all-questions/${row?.original?.question.toLowerCase().replace(/\s+/g, "-")}`
               return(
                 <TableRow
               className="hover:text-amber-300 hover:bg-zinc-950"
@@ -53,7 +55,9 @@ interface DataTableProps<TData, TValue> {
             >
               {row.getVisibleCells().map((cell) => (
                 <TableCell key={cell.id} className="cursor-pointer">
+       <Link href={link}>
        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+       </Link>
               </TableCell>
                 ))}
             </TableRow>
